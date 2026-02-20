@@ -34,10 +34,10 @@ cp match/private.example.yml match/private.yml
 
 | File | Contents |
 |------|----------|
-| `match/base.yml` | Personal info (name, etc.) |
-| `match/ai.yml` | OpenClaw model shortcuts |
+| `match/base.yml` | Personal info (name, nickname, etc.) |
+| `match/openclaw.yml` | OpenClaw slash commands, model switches |
 | `match/dates.yml` | Date/time format expansions |
-| `match/emojis.yml` | Emoji and flag shortcuts |
+| `match/emojis.yml` | Emoji (`;word`) and flags (`;flag.xx`) |
 | `match/japanese.yml` | Japanese phrases + kana charts |
 | `match/obsidian.yml` | Obsidian wikilinks, note templates |
 | `match/private.example.yml` | Template for personal info (copy → `private.yml`, gitignored) |
@@ -48,5 +48,8 @@ cp match/private.example.yml match/private.yml
 | Prefix | Category |
 |--------|----------|
 | `:` | Dates, names, templates |
-| `;` | Emojis, symbols |
-| `/model` | AI model switches |
+| `;` | Emojis (`;word`) and flags (`;flag.xx`) |
+| `;heart.` | Colored hearts (`;heart.blue`, `;heart.black`, etc.) |
+| `/model` | OpenClaw model switches |
+| `/new` | New session with optional model hint |
+| `/think` | Thinking level shortcuts |
