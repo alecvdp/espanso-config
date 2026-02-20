@@ -1,0 +1,75 @@
+matches:
+  # Bare dates
+  - trigger: ":iso"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":dnice"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%B %d, %Y"
+
+  - trigger: ":dshort"
+    replace: "{{mydate}}"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%m/%d/%Y"
+
+  # Time and timestamps
+  - trigger: ":ts"
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M:%S"
+
+  - trigger: ":now"
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime
+        type: date
+        params:
+          format: "%H:%M"
+
+  - trigger: ":dt"
+    replace: "{{mytime}}"
+    vars:
+      - name: mytime
+        type: date
+        params:
+          format: "%Y-%m-%d %I:%M %p"
+
+  # Periods
+  - trigger: ":week"
+    replace: "{{myweek}}"
+    vars:
+      - name: myweek
+        type: date
+        params:
+          format: "%Y-W%W"
+
+  - trigger: ":month"
+    replace: "{{mymonth}}"
+    vars:
+      - name: mymonth
+        type: date
+        params:
+          format: "%Y-%m"
+
+  - trigger: ":year"
+    replace: "{{myyear}}"
+    vars:
+      - name: myyear
+        type: date
+        params:
+          format: "%Y"

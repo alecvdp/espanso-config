@@ -1,0 +1,5 @@
+# Ignore installed packages (managed by espanso hub, not this repo)
+match/packages/
+
+# OS
+.DS_Store

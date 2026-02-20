@@ -1,0 +1,71 @@
+matches:
+  # Wikilinked dates for daily notes
+  - trigger: ":today"
+    replace: "[[{{mydate}}]]"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  - trigger: ":yesterday"
+    replace: "[[{{mydate}}]]"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+          offset: -86400
+
+  - trigger: ":tomorrow"
+    replace: "[[{{mydate}}]]"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+          offset: 86400
+
+  - trigger: ":lastweek"
+    replace: "[[{{mydate}}]]"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+          offset: -604800
+
+  - trigger: ":nextweek"
+    replace: "[[{{mydate}}]]"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+          offset: 604800
+
+  # Journal template
+  - trigger: ":journal"
+    replace: "---\ndate: [[{{mydate}}]]\ntags: #daily-note\n---\n\n# {{nicename}}\n\n"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+      - name: nicename
+        type: date
+        params:
+          format: "%A, %B %d, %Y"
+
+  # Meeting note template
+  - trigger: ":meeting"
+    replace: "---\ndate: [[{{mydate}}]]\ntags: #meeting\n---\n\n# Meeting - \n\n## Attendees\n- \n\n## Agenda\n- \n\n## Notes\n\n\n## Action Items\n- [ ] \n"
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: "%Y-%m-%d"
+
+  # Special dates
+  - trigger: ":recovery"
+    replace: "[[2025-05-17]]"

@@ -1,0 +1,6 @@
+# base.yml — personal info & general shortcuts
+
+matches:
+  - triggers: [":av"]
+    label: "Full Name"
+    replace: "Alec van der Poel"
