@@ -23,9 +23,7 @@ matches:
   - trigger: ";down"
     replace: "👎"
 
-  # Hearts — ;heart.color (default red)
-  - trigger: ";heart"
-    replace: "❤️"
+  # Hearts — always use ;heart.color (no ambiguous standalone trigger)
   - trigger: ";heart.red"
     replace: "❤️"
   - trigger: ";heart.blue"
