@@ -1,0 +1,72 @@
+# openclaw.yml — OpenClaw slash command shortcuts
+# Works in Telegram and the TUI
+
+matches:
+
+  # --- Model switching ---
+  - triggers: ["/model son"]
+    label: "Switch to Claude Sonnet"
+    replace: "/model anthropic/claude-sonnet-4-6"
+
+  - triggers: ["/model opu"]
+    label: "Switch to Claude Opus"
+    replace: "/model anthropic/claude-opus-4-6"
+
+  - triggers: ["/model hai"]
+    label: "Switch to Claude Haiku"
+    replace: "/model anthropic/claude-haiku-4-5"
+
+  - triggers: ["/model gem"]
+    label: "Switch to Gemini Flash (free)"
+    replace: "/model openrouter/google/gemini-2.0-flash-001"
+
+  - triggers: ["/model kimi"]
+    label: "Switch to Kimi K2"
+    replace: "/model openrouter/moonshot/kimi-k2"
+
+  - triggers: ["/model mini"]
+    label: "Switch to MiniMax M2.5"
+    replace: "/model openrouter/minimax/minimax-m2.5"
+
+  # --- New session with model hint ---
+  - triggers: ["/new son"]
+    label: "New session on Sonnet"
+    replace: "/new anthropic/claude-sonnet-4-6"
+
+  - triggers: ["/new opu"]
+    label: "New session on Opus"
+    replace: "/new anthropic/claude-opus-4-6"
+
+  - triggers: ["/new hai"]
+    label: "New session on Haiku"
+    replace: "/new anthropic/claude-haiku-4-5"
+
+  # --- Thinking levels ---
+  - triggers: ["/think off"]
+    label: "Thinking off"
+    replace: "/think off"
+
+  - triggers: ["/think lo"]
+    label: "Thinking low"
+    replace: "/think low"
+
+  - triggers: ["/think med"]
+    label: "Thinking medium"
+    replace: "/think medium"
+
+  - triggers: ["/think hi"]
+    label: "Thinking high"
+    replace: "/think high"
+
+  # --- Session controls ---
+  - triggers: ["/ctx"]
+    label: "Show context breakdown"
+    replace: "/context detail"
+
+  - triggers: ["/use"]
+    label: "Show token/cost usage"
+    replace: "/usage full"
+
+  - triggers: ["/cmp"]
+    label: "Compact context"
+    replace: "/compact"
