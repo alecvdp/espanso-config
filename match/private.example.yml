@@ -1,0 +1,18 @@
+# private.example.yml — template for private.yml (this file IS committed)
+# On a new machine: cp match/private.example.yml match/private.yml
+# Then fill in your actual values.
+
+matches:
+  - triggers: [":email"]
+    label: "Personal email"
+    replace: "YOUR_EMAIL"
+
+  - triggers: [":gh"]
+    label: "GitHub profile"
+    replace: "https://github.com/YOUR_USERNAME"
+
+  - triggers: [":czander"]
+    label: "Nickname"
+    replace: "YOUR_NICKNAME"
+
+  # Add more: phone, work email, home address, etc.

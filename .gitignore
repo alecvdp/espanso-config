@@ -1,5 +1,8 @@
 # Ignore installed packages (managed by espanso hub, not this repo)
 match/packages/
 
+# Private snippets (email, phone, address, etc.) — copy manually on each machine
+match/private.yml
+
 # OS
 .DS_Store

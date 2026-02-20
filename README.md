@@ -21,6 +21,15 @@ git pull
 espanso restart
 ```
 
+## Private snippets
+
+Sensitive info (email, phone, etc.) lives in `match/private.yml` which is gitignored and never committed. On a new machine:
+
+```bash
+cp match/private.example.yml match/private.yml
+# edit private.yml with your actual values
+```
+
 ## Structure
 
 | File | Contents |
@@ -31,6 +40,7 @@ espanso restart
 | `match/emojis.yml` | Emoji and flag shortcuts |
 | `match/japanese.yml` | Japanese phrases + kana charts |
 | `match/obsidian.yml` | Obsidian wikilinks, note templates |
+| `match/private.example.yml` | Template for personal info (copy → `private.yml`, gitignored) |
 | `config/default.yml` | Global Espanso settings |
 
 ## Trigger conventions
