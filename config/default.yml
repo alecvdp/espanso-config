@@ -11,6 +11,13 @@
 # To make customization easier, this file contains some of the commonly used
 # parameters. Feel free to uncomment and tune them to fit your needs!
 
+# --- Keyboard layout
+
+# On Wayland espanso can't auto-detect the layout, so set it explicitly
+# (it logs a warning and may inject wrong characters otherwise).
+keyboard_layout:
+  layout: us
+
 # --- Toggle key
 
 # Customize the key used to disable and enable espanso (when double tapped)

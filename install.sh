@@ -19,6 +19,25 @@ fi
 
 echo "Espanso config dir: $ESPANSO_DIR"
 
+# Install espanso itself if missing
+if ! command -v espanso >/dev/null 2>&1; then
+  echo "Espanso not installed — installing..."
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    brew install espanso
+  elif command -v yay >/dev/null 2>&1; then
+    # Arch: pick the build matching the display server
+    if [ "$XDG_SESSION_TYPE" = "wayland" ] || [ -n "$WAYLAND_DISPLAY" ]; then
+      yay -S --needed espanso-wayland-bin
+    else
+      yay -S --needed espanso-x11-bin
+    fi
+  else
+    echo "No supported installer found (brew/yay)."
+    echo "Install espanso manually: https://espanso.org/install/"
+    exit 1
+  fi
+fi
+
 # Backup existing config if it exists and isn't already this repo
 if [ -d "$ESPANSO_DIR" ] && [ ! -L "$ESPANSO_DIR/match" ]; then
   BACKUP="$ESPANSO_DIR.backup.$(date +%Y%m%d%H%M%S)"
@@ -47,6 +66,22 @@ for dir in match config; do
   fi
 done
 
+# Register and start the service
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  if [ ! -f "$HOME/.config/systemd/user/espanso.service" ]; then
+    espanso service register
+  fi
+  # The Debian-built AUR binary's "espanso launcher" segfaults on Arch
+  # (wxwidgets mismatch), so run the daemon directly instead.
+  mkdir -p "$HOME/.config/systemd/user/espanso.service.d"
+  printf '[Service]\nExecStart=\nExecStart=%s daemon\n' "$(command -v espanso)" \
+    > "$HOME/.config/systemd/user/espanso.service.d/override.conf"
+  systemctl --user daemon-reload
+  systemctl --user restart espanso.service
+else
+  espanso service register 2>/dev/null || true
+  espanso restart || espanso start
+fi
+
 echo ""
-echo "✅ Done! Espanso is now using config from: $REPO_DIR"
-echo "   Restart Espanso if it's running: espanso restart"
+echo "✅ Done! Espanso is running with config from: $REPO_DIR"
