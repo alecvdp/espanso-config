@@ -18,6 +18,15 @@
 keyboard_layout:
   layout: us
 
+# --- Clipboard injection timing
+
+# Emoji and long expansions are injected via the clipboard (copy, then a
+# simulated paste shortcut). The default delays are too tight on Wayland:
+# the paste can fire before the clipboard is set, or the previous clipboard
+# is restored before the app reads it — pasting stale content instead.
+pre_paste_delay: 300
+restore_clipboard_delay: 800
+
 # --- Toggle key
 
 # Customize the key used to disable and enable espanso (when double tapped)
